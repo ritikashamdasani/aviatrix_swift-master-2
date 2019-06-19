@@ -11,9 +11,12 @@ import Foundation
 class Aviatrix {
     var running = false
     var author : String
+    var data = AviatrixData()
+    var location = "St. Louis"
     
     init(authorName: String){
-        author = authorName //authorName will be stored in author 
+        author = authorName //authorName will be stored in author
+        
     }
     
     func start() -> Bool {
@@ -26,14 +29,16 @@ class Aviatrix {
     }
     
     func flyTo(destination : String) {
-        
+        location = destination
     }
     
-    func distanceTo(target : String) {
+    func distanceTo(target : String) -> Int {
+        return data.knownDistances[location]![target]!
     
     }
     
     func knownDestinations() -> [String] {
-       return ["St. Louis"]
+       return ["St. Louis", "Phoenix", "Denver", "SLC"]
     }
 }
+
